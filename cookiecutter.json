@@ -7,7 +7,7 @@
   "version": "0.1.0",
   "author": "Mats Elfström",
   "email": "mats.elfstrom@gmail.com",
-  "github_user": "your-github-user",
+  "github_user": "matself",
   "qgis_min_version": "3.34",
   "qgis_max_version": "4.99",
   "category": ["Plugins", "Vector", "Raster", "Database", "Web"],

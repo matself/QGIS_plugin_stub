@@ -8,8 +8,14 @@ ROOT = Path.cwd()
 PKG = ROOT / "{{ cookiecutter.module_name }}"
 
 LICENSE_URLS = {
-    "GPL-2.0-or-later": "https://www.gnu.org/licenses/old-licenses/gpl-2.0.txt",
-    "GPL-3.0-or-later": "https://www.gnu.org/licenses/gpl-3.0.txt",
+    "GPL-2.0-or-later": [
+        "https://www.gnu.org/licenses/old-licenses/gpl-2.0.txt",
+        "https://raw.githubusercontent.com/spdx/license-list-data/main/text/GPL-2.0-or-later.txt",
+    ],
+    "GPL-3.0-or-later": [
+        "https://www.gnu.org/licenses/gpl-3.0.txt",
+        "https://raw.githubusercontent.com/spdx/license-list-data/main/text/GPL-3.0-or-later.txt",
+    ],
 }
 
 
@@ -40,13 +46,17 @@ if "{{ cookiecutter.include_github_actions }}" != "yes":
 
 def fetch_license():
     """Download the full license text; keep the short notice if offline."""
-    url = LICENSE_URLS["{{ cookiecutter.license }}"]
-    try:
-        with urllib.request.urlopen(url, timeout=10) as response:
-            text = response.read().decode("utf-8")
-    except Exception as exc:  # offline, proxy, ... -> keep the notice
-        print(f"NOTE: could not download the full license text ({exc}).")
-        print(f"      Replace LICENSE with the full text from {url} before publishing.")
+    urls = LICENSE_URLS["{{ cookiecutter.license }}"]
+    text = None
+    for url in urls:
+        try:
+            with urllib.request.urlopen(url, timeout=10) as response:
+                text = response.read().decode("utf-8")
+            break
+        except Exception as exc:  # offline, proxy, ... -> try the next source
+            print(f"NOTE: could not download the license text from {url} ({exc}).")
+    if text is None:
+        print(f"      Replace LICENSE with the full text from {urls[0]} before publishing.")
         return
     notice = (ROOT / "LICENSE").read_text(encoding="utf-8")
     (ROOT / "LICENSE").write_text(notice + "\n" + "-" * 72 + "\n\n" + text, encoding="utf-8")

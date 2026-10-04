@@ -25,7 +25,7 @@ py -m cookiecutter C:\GITHUB\QGIS_plugin_stub -o C:\GITHUB
 Utan frågor (värden du inte anger får standardvärdet):
 
 ```bash
-py -m cookiecutter C:\GITHUB\QGIS_plugin_stub --no-input -o C:\GITHUB plugin_name="Min Karttjänst" github_user=ditt-användarnamn
+py -m cookiecutter C:\GITHUB\QGIS_plugin_stub --no-input -o C:\GITHUB plugin_name="Min Karttjanst"
 ```
 
 ### Frågorna
@@ -39,7 +39,7 @@ py -m cookiecutter C:\GITHUB\QGIS_plugin_stub --no-input -o C:\GITHUB plugin_nam
 | `short_description` | En mening på engelska. |
 | `version` | Startversion, till exempel `0.1.0`. |
 | `author`, `email` | Visas i QGIS och på plugins.qgis.org. |
-| `github_user` | Används för länkarna i `metadata.txt`. Byt från standardvärdet. |
+| `github_user` | Används för länkarna i `metadata.txt`. Standardvärdet är `matself`. |
 | `qgis_min_version` | Lägsta QGIS-version. Standard 3.34. |
 | `qgis_max_version` | Högsta QGIS-version. Standard 4.99, vilket gör pluginet tillgängligt för QGIS 4. |
 | `category` | Kategori i pluginhanteraren. |
