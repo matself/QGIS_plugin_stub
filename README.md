@@ -3,6 +3,8 @@
 Cookiecutter template that generates a new QGIS plugin repository compatible with both
 QGIS 3 (Qt5) and QGIS 4 (Qt6).
 
+Swedish user guide: [docs/ANVANDARHANDLEDNING.md](docs/ANVANDARHANDLEDNING.md)
+
 ## Use
 
 ```bash
