@@ -1,0 +1,21 @@
+{
+  "plugin_name": "My QGIS Plugin",
+  "module_name": "{{ cookiecutter.plugin_name.lower().replace(' ', '_').replace('-', '_') }}",
+  "repo_name": "{{ cookiecutter.module_name.replace('_', '-') }}",
+  "class_name": "{{ cookiecutter.plugin_name.title().replace(' ', '').replace('-', '').replace('_', '') }}",
+  "short_description": "A short, one-line description of what the plugin does.",
+  "version": "0.1.0",
+  "author": "Mats Elfström",
+  "email": "mats.elfstrom@gmail.com",
+  "github_user": "your-github-user",
+  "qgis_min_version": "3.34",
+  "qgis_max_version": "4.99",
+  "category": ["Plugins", "Vector", "Raster", "Database", "Web"],
+  "license": ["GPL-2.0-or-later", "GPL-3.0-or-later"],
+  "include_dockwidget": ["yes", "no"],
+  "include_processing_provider": ["no", "yes"],
+  "include_i18n": ["yes", "no"],
+  "include_tests": ["yes", "no"],
+  "include_github_actions": ["yes", "no"],
+  "init_git": ["yes", "no"]
+}

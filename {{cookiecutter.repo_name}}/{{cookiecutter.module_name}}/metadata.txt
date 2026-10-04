@@ -1,0 +1,23 @@
+[general]
+name={{ cookiecutter.plugin_name }}
+qgisMinimumVersion={{ cookiecutter.qgis_min_version }}
+qgisMaximumVersion={{ cookiecutter.qgis_max_version }}
+description={{ cookiecutter.short_description }}
+version={{ cookiecutter.version }}
+author={{ cookiecutter.author }}
+email={{ cookiecutter.email }}
+about={{ cookiecutter.short_description }} Replace this with a longer description in English.
+tracker=https://github.com/{{ cookiecutter.github_user }}/{{ cookiecutter.repo_name }}/issues
+repository=https://github.com/{{ cookiecutter.github_user }}/{{ cookiecutter.repo_name }}
+homepage=https://github.com/{{ cookiecutter.github_user }}/{{ cookiecutter.repo_name }}
+category={{ cookiecutter.category }}
+icon=icon.svg
+tags=
+experimental=True
+deprecated=False
+license={{ cookiecutter.license }}
+{%- if cookiecutter.include_processing_provider == "yes" %}
+hasProcessingProvider=yes
+{%- endif %}
+changelog=
+    {{ cookiecutter.version }} - Initial version
